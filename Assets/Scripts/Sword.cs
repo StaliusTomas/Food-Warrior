@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Sword : MonoBehaviour
 {
+    private void Start()
+    {
+        Cursor.visible = false;
+    }
     private void Update()
     {
         if (Input.GetKey(KeyCode.Mouse0))
@@ -15,5 +19,9 @@ public class Sword : MonoBehaviour
 
             transform.position = worldPos;
         }
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Destroy(other.gameObject);
     }
 }
