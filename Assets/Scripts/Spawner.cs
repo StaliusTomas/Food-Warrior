@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    public GameObject prefab;
+    public GameObject fruitPrefab;
+    public GameObject bombPrefab;
 
     private void Start()
     {
@@ -13,6 +14,7 @@ public class Spawner : MonoBehaviour
 
     public void Spawn()
     {
+        var prefab = Random.Range(0, 100) < 50 ? fruitPrefab : bombPrefab;
         var obj = Instantiate(prefab);
         var pos = new Vector3(Random.Range(-5f, 5f), -5, 0);
         obj.transform.position = pos;
